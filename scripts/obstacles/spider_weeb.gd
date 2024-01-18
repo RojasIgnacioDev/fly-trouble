@@ -1,4 +1,4 @@
-extends HurtArea
+extends Node2D
 
 
 const MIN_SIZE : float = 0.15

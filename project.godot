@@ -26,7 +26,7 @@ folder_colors={
 "res://scenes/player/": "blue",
 "res://scenes/ui/": "yellow",
 "res://scripts/": "purple",
-"res://shared/": "green"
+"res://shared/": "red"
 }
 
 [input]
