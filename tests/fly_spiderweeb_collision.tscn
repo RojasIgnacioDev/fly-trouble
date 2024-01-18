@@ -8,5 +8,5 @@
 [node name="Fly" parent="." instance=ExtResource("1_6eiep")]
 position = Vector2(575, 1109)
 
-[node name="HurtArea" parent="." instance=ExtResource("2_sa3ul")]
-position = Vector2(584, 445)
+[node name="SpiderWeeb" parent="." instance=ExtResource("2_sa3ul")]
+position = Vector2(562, 623)
