@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://bdjy5k37lfm6"]
+
+[ext_resource type="Script" path="res://scripts/obstacles/spider_weeb.gd" id="1_isu7y"]
+[ext_resource type="Texture2D" uid="uid://b6aptsqeq2dpe" path="res://assets/spiderweeb.png" id="1_uijfd"]
+[ext_resource type="PackedScene" uid="uid://b78vbxboudmej" path="res://shared/sprite_shadow.tscn" id="3_tcyvs"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_yanlu"]
+radius = 500.0
+
+[node name="HurtArea" type="Area2D" groups=["SpiderWeeb"]]
+position = Vector2(124, 125)
+collision_layer = 0
+script = ExtResource("1_isu7y")
+metadata/_edit_vertical_guides_ = [-386.0]
+metadata/_edit_horizontal_guides_ = [194.0]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(0.25, 0.25)
+shape = SubResource("CircleShape2D_yanlu")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("1_uijfd")
+
+[node name="SpriteShadow" parent="." node_paths=PackedStringArray("sprite") instance=ExtResource("3_tcyvs")]
+position_offset = Vector2(-128, 128)
+scale_offset = 0.25
+sprite = NodePath("../Sprite")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
