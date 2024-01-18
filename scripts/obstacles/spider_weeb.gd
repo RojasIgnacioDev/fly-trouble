@@ -15,8 +15,8 @@ func _ready() -> void:
 	@warning_ignore("shadowed_variable_base_class")
 	var initial_scale : Vector2 = Vector2(initial_scale_value, initial_scale_value)
 	
-	collision.initial_scale = initial_scale
-	sprite.initial_scale = initial_scale
+	collision.scale = initial_scale
+	sprite.scale = initial_scale
 	
 	# setting random rotation
 	var random_rotation : float = randf_range(0, PI / 2)
