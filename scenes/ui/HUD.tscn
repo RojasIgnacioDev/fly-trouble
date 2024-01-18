@@ -1,0 +1,37 @@
+[gd_scene load_steps=2 format=3 uid="uid://bvq1m5xuy4ebm"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_2qdq1"]
+line_spacing = 12.0
+font_size = 48
+font_color = Color(0.811765, 0.662745, 0.4, 1)
+
+[node name="HUD" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+offset_left = 482.0
+offset_right = 670.0
+offset_bottom = 648.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="MetersLabel" type="Label" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Meters: "
+label_settings = SubResource("LabelSettings_2qdq1")
+
+[node name="MeterTraveledLabel" type="Label" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "0"
+label_settings = SubResource("LabelSettings_2qdq1")
