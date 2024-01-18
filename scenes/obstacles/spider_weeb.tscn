@@ -7,7 +7,7 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_yanlu"]
 radius = 500.0
 
-[node name="HurtArea" type="Area2D" groups=["SpiderWeeb"]]
+[node name="SpiderWeeb" type="Area2D" groups=["SpiderWeeb"]]
 position = Vector2(124, 125)
 collision_layer = 0
 script = ExtResource("1_isu7y")
