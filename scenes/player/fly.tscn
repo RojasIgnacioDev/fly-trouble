@@ -1,0 +1,35 @@
+[gd_scene load_steps=5 format=3 uid="uid://b80ia40x4jdq2"]
+
+[ext_resource type="Script" path="res://scripts/player/fly.gd" id="1_nyp3v"]
+[ext_resource type="Texture2D" uid="uid://b1p87l34lrlws" path="res://assets/mosca.png" id="1_xkru4"]
+[ext_resource type="PackedScene" uid="uid://b78vbxboudmej" path="res://shared/sprite_shadow.tscn" id="3_2h7e7"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_i3o8n"]
+radius = 41.0122
+
+[node name="Fly" type="CharacterBody2D"]
+position = Vector2(575, 129)
+rotation = -1.57079
+script = ExtResource("1_nyp3v")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+rotation = 1.5708
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("1_xkru4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_i3o8n")
+
+[node name="SpriteShadow" parent="." node_paths=PackedStringArray("sprite") instance=ExtResource("3_2h7e7")]
+position_offset = Vector2(-64, 64)
+scale_offset = 0.35
+sprite = NodePath("../Sprite")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+rotation = 1.57079
+offset = Vector2(0, -200)
+limit_left = -100
+limit_right = 1252
+limit_smoothed = true
+editor_draw_limits = true
+editor_draw_drag_margin = true

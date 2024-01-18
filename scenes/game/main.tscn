@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://cyr7q1k5cq4oa"]
+
+[ext_resource type="Texture2D" uid="uid://bvaxn6m78mh8q" path="res://assets/background.png" id="1_w8cjc"]
+[ext_resource type="PackedScene" uid="uid://b80ia40x4jdq2" path="res://scenes/player/fly.tscn" id="2_b4xqh"]
+
+[node name="Main" type="Node2D"]
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.25, 0.25)
+motion_mirroring = Vector2(0, 1536)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+position = Vector2(571, 0)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("1_w8cjc")
+
+[node name="GameEntities" type="Node2D" parent="."]
+
+[node name="Fly" parent="GameEntities" instance=ExtResource("2_b4xqh")]
+position = Vector2(545, 253)

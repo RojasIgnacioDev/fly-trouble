@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://b78vbxboudmej"]
+
+[ext_resource type="Script" path="res://SpriteShadow.gd" id="1_nw6hm"]
+
+[node name="SpriteShadow" type="Node"]
+script = ExtResource("1_nw6hm")
