@@ -22,7 +22,9 @@ folder_colors={
 "res://resources/": "gray",
 "res://scenes/": "red",
 "res://scenes/game/": "green",
+"res://scenes/obstacles/": "orange",
 "res://scenes/player/": "blue",
+"res://scenes/ui/": "yellow",
 "res://scripts/": "purple",
 "res://shared/": "green"
 }
