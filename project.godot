@@ -19,10 +19,12 @@ config/icon="res://icon.svg"
 
 folder_colors={
 "res://assets/": "yellow",
+"res://resources/": "gray",
 "res://scenes/": "red",
 "res://scenes/game/": "green",
 "res://scenes/player/": "blue",
-"res://scripts/": "purple"
+"res://scripts/": "purple",
+"res://shared/": "green"
 }
 
 [input]
@@ -42,6 +44,7 @@ turn_right={
 
 2d_physics/layer_1="Player"
 2d_physics/layer_2="SpiderWeeb"
+2d_physics/layer_3="World"
 
 [rendering]
 
