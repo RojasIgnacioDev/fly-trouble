@@ -1,3 +1,12 @@
-[gd_scene format=3 uid="uid://f7qiv2k7myyj"]
+[gd_scene load_steps=3 format=3 uid="uid://f7qiv2k7myyj"]
+
+[ext_resource type="PackedScene" uid="uid://b80ia40x4jdq2" path="res://scenes/player/fly.tscn" id="1_6eiep"]
+[ext_resource type="PackedScene" uid="uid://bdjy5k37lfm6" path="res://scenes/obstacles/spider_weeb.tscn" id="2_sa3ul"]
 
 [node name="FlySpiderweebCollision" type="Node2D"]
+
+[node name="Fly" parent="." instance=ExtResource("1_6eiep")]
+position = Vector2(575, 1109)
+
+[node name="HurtArea" parent="." instance=ExtResource("2_sa3ul")]
+position = Vector2(584, 445)
