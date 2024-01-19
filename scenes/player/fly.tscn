@@ -45,4 +45,3 @@ editor_draw_limits = true
 editor_draw_drag_margin = true
 
 [connection signal="on_damaged" from="HitBox" to="." method="_on_hit_box_on_damaged"]
-[connection signal="on_killed" from="HitBox" to="." method="_on_hit_box_on_killed"]

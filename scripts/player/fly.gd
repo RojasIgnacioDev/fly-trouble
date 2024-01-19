@@ -2,7 +2,7 @@ class_name Fly extends CharacterBody2D
 
 
 signal meter_traveled(amount_meters : int)
-
+signal trapped
 
 @export var total_meters_traveled : int = 0
 
@@ -61,14 +61,13 @@ func _monitor_travel_info():
 	total_meters_traveled = meters_traveled
 
 
-func _on_hit_box_on_killed():
-	is_alive = false
-	
 
-
+@warning_ignore("unused_parameter")
 func _on_hit_box_on_damaged(damage, damager):
 	var spr : Sprite2D = $Sprite
 	is_alive = false
 	self.look_at(damager.position)
 	spr.scale *= 0.9
-	pass # Replace with function body.
+	
+	await get_tree().create_timer(0.75).timeout
+	trapped.emit()
