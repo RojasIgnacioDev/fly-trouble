@@ -1,15 +1,17 @@
-[gd_scene load_steps=6 format=3 uid="uid://b80ia40x4jdq2"]
+[gd_scene load_steps=7 format=3 uid="uid://b80ia40x4jdq2"]
 
 [ext_resource type="Script" path="res://scripts/player/fly.gd" id="1_nyp3v"]
 [ext_resource type="Texture2D" uid="uid://b1p87l34lrlws" path="res://assets/mosca.png" id="1_xkru4"]
 [ext_resource type="PackedScene" uid="uid://b78vbxboudmej" path="res://shared/sprite_shadow.tscn" id="3_2h7e7"]
-[ext_resource type="Script" path="res://shared/hit_box.gd" id="4_r8kvq"]
+[ext_resource type="Script" path="res://scripts/shared/hitbox.gd" id="4_4pt6u"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_j4x23"]
 radius = 43.2666
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_kad2g"]
+
 [node name="Fly" type="CharacterBody2D" groups=["Fly"]]
-position = Vector2(575, 129)
+position = Vector2(687, 414)
 rotation = -1.57079
 script = ExtResource("1_nyp3v")
 
@@ -23,18 +25,24 @@ position_offset = Vector2(-64, 64)
 scale_offset = 0.35
 sprite = NodePath("../Sprite")
 
+[node name="HitBox" type="Area2D" parent="."]
+collision_mask = 0
+script = ExtResource("4_4pt6u")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
+shape = SubResource("CircleShape2D_j4x23")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_kad2g")
+disabled = true
+
 [node name="Camera2D" type="Camera2D" parent="."]
-rotation = 1.57079
 offset = Vector2(0, -200)
-limit_left = -100
-limit_right = 1252
+limit_left = 0
+limit_right = 1400
 limit_smoothed = true
 editor_draw_limits = true
 editor_draw_drag_margin = true
 
-[node name="HitBox" type="Area2D" parent="."]
-collision_mask = 0
-script = ExtResource("4_r8kvq")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
-shape = SubResource("CircleShape2D_j4x23")
+[connection signal="on_damaged" from="HitBox" to="." method="_on_hit_box_on_damaged"]
+[connection signal="on_killed" from="HitBox" to="." method="_on_hit_box_on_killed"]

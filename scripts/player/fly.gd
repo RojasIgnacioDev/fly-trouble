@@ -16,17 +16,20 @@ const TURN_SPEED : float = 90
 
 
 var initial_position : Vector2
+var is_alive : bool = true
 
 
 func _ready():
 	initial_position = self.global_position
 
 
+@warning_ignore("unused_parameter")
 func _process(delta):
 	_monitor_travel_info()
 
 
 func _physics_process(delta) -> void:
+	if not is_alive: return
 	_handle_turning(delta)
 	_handle_movement()
 
@@ -36,7 +39,7 @@ func _handle_turning(dt : float) -> void:
 	var rotation_force : float = deg_to_rad(TURN_SPEED) * turn_dir * dt
 	var rotation_result : float = self.rotation + rotation_force
 	
-	if sin(rotation_result) < -0.35:
+	if sin(rotation_result) < 0:
 		self.global_rotation = rotation_result
 
 
@@ -49,10 +52,23 @@ func _handle_movement() -> void:
 # checks the distance traveled 
 func _monitor_travel_info():
 	var distance : float = initial_position.distance_to(self.global_position)
+	@warning_ignore("narrowing_conversion")
 	var meters_traveled : int = distance / METER_PER_PIXELS
 	
 	if meters_traveled > total_meters_traveled:
 		meter_traveled.emit(meters_traveled)
 	
 	total_meters_traveled = meters_traveled
+
+
+func _on_hit_box_on_killed():
+	is_alive = false
 	
+
+
+func _on_hit_box_on_damaged(damage, damager):
+	var spr : Sprite2D = $Sprite
+	is_alive = false
+	self.look_at(damager.position)
+	spr.scale *= 0.9
+	pass # Replace with function body.

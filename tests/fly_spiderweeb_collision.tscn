@@ -6,7 +6,7 @@
 [node name="FlySpiderweebCollision" type="Node2D"]
 
 [node name="Fly" parent="." instance=ExtResource("1_6eiep")]
-position = Vector2(575, 1109)
+position = Vector2(624, 1494)
 
 [node name="SpiderWeeb" parent="." instance=ExtResource("2_sa3ul")]
-position = Vector2(562, 623)
+position = Vector2(529, 993)

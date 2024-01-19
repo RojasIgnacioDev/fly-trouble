@@ -10,8 +10,6 @@ const MAX_SIZE : float = 0.35
 
 
 func _ready() -> void:
-	
 	# setting random rotation
 	var random_rotation : float = randf_range(0, PI / 2)
 	sprite.rotation = random_rotation
-
