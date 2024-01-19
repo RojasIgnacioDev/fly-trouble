@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://c4rpcyp6ed2h2"]
+
+[ext_resource type="Script" path="res://scripts/shared/to_do.gd" id="1_ubx0d"]
+
+[node name="ToDo" type="Node"]
+script = ExtResource("1_ubx0d")
